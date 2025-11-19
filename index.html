@@ -1,67 +1,625 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAP Garland, LLC</title>
+  <title>SK LEBENSLUST LTD – Consulting & Lifestyle Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --bg: #020617;
+      --card: #020617;
+      --accent: #06b6d4;
+      --accent-strong: #22d3ee;
+      --accent-soft: rgba(34, 211, 238, 0.18);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: #1e293b;
+      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.85);
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f0f0f0;
-      color: #333;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(34, 211, 238, 0.25), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.25), #020617 60%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 16px 42px;
+    }
+
     header {
-      background-color: #003366;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 28px;
     }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
-    h1, h2 {
-      color: #003366;
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      background:
+        conic-gradient(from 200deg, #06b6d4, #22d3ee, #38bdf8, #0ea5e9, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #020617;
+      font-weight: 800;
+      font-size: 24px;
+      box-shadow: 0 18px 40px rgba(34, 211, 238, 0.85);
     }
-    .contact {
-      background: #fff;
-      padding: 20px;
-      border-left: 5px solid #003366;
-      margin-top: 30px;
+
+    .brand-main {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
+
+    .brand-sub {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .domain-pill {
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+    }
+
+    .domain-pill span:first-child {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.25);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1.05fr);
+      gap: 26px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* LEFT – HERO */
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(34, 211, 238, 0.2), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.9), transparent 60%),
+        #020617;
+      border-radius: 28px;
+      padding: 24px 22px 20px;
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-badge span:last-child {
+      color: #a5f3fc;
+    }
+
+    .hero-title {
+      font-size: clamp(27px, 3.8vw, 34px);
+      line-height: 1.12;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-title span {
+      display: inline-block;
+      background: linear-gradient(135deg, #a5f3fc, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(75, 85, 99, 0.95);
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .btn-main,
+    .btn-ghost {
+      border-radius: 999px;
+      font-size: 13px;
+      padding: 10px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease, border-color 0.14s ease;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #06b6d4, #22d3ee);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 16px 34px rgba(34, 211, 238, 0.9);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 46px rgba(34, 211, 238, 0.95);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: #e5e7eb;
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta span i {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.7);
+    }
+
+    .hero-meta strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .info-card {
+      margin-top: 12px;
+      background: rgba(15, 23, 42, 0.97);
+      border-radius: 20px;
+      padding: 14px 14px 10px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .info-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .info-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .info-link {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .info-link:hover {
+      text-decoration: underline;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(34, 211, 238, 0.85);
+      color: #e0f2fe;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .chip-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* RIGHT – GALLERY */
+    .gallery-card {
+      background: radial-gradient(circle at top, rgba(34, 211, 238, 0.15), #020617 70%);
+      border-radius: 24px;
+      padding: 18px 18px 14px;
+      border: 1px solid rgba(30, 64, 175, 0.85);
+      box-shadow: 0 20px 46px rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .gallery-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .gallery-header span:last-child {
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(75, 85, 99, 0.95);
+      color: var(--text-muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .gallery-main {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(45, 212, 191, 0.8);
+      background: #020617;
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.02);
+    }
+
+    .gallery-main-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 10px 12px;
+    }
+
+    .gallery-main-text {
+      font-size: 12px;
+    }
+
+    .gallery-main-text span {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #a5f3fc;
+    }
+
+    .gallery-main-text strong {
+      display: block;
+      margin-top: 3px;
+      font-weight: 600;
+    }
+
+    .gallery-main-sub {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .gallery-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: #020617;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item-caption {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      font-size: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.95), transparent);
+      color: var(--text-muted);
+      backdrop-filter: blur(6px);
+    }
+
+    .gallery-footer {
+      font-size: 10px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .gallery-footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.7);
+    }
+
+    .gallery-footer a:hover {
+      color: #e5e7eb;
+      border-bottom-style: solid;
+    }
+
     footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 50px;
+      margin-top: 26px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 10px;
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CAP Garland, LLC</h1>
-    <p>Private Investment Fund</p>
-  </header>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">S</div>
+        <div>
+          <div class="brand-main">SK Lebenslust LTD</div>
+          <div class="brand-sub">Consulting · Lifestyle · Services</div>
+        </div>
+      </div>
 
-  <section>
-    <h2>About Us</h2>
-    <p>CAP Garland, LLC is a Washington-based private investment fund focused on delivering value through diversified investment strategies.</p>
+      <div class="domain-pill">
+        <span></span>
+        <span>www.sk-lebenslust.com</span>
+      </div>
+    </header>
 
-    <h2>Contact</h2>
-    <div class="contact">
-      <p><strong>Address:</strong> 915 W 2nd Ave, Spokane, WA 99201</p>
-      <p><strong>Email:</strong> <a href="mailto:ryanberg@capgarland.shop">ryanberg@capgarland.shop</a></p>
-      <p><strong>Phone:</strong> (509) 822-3850</p>
-    </div>
-  </section>
+    <main>
+      <!-- LEFT -->
+      <section class="hero">
+        <div class="hero-badge">
+          <span>🌊 Consulting & lifestyle</span>
+          <span>Χλώρακα – Πάφος, Κύπρος</span>
+        </div>
 
-  <footer>
-    &copy; 2025 CAP Garland, LLC. All rights reserved.
-  </footer>
+        <h1 class="hero-title">
+          Accompagnement <span>sur-mesure</span><br />
+          au cœur de Chypre.
+        </h1>
+
+        <p class="hero-subtitle">
+          SK LEBENSLUST LTD accompagne particuliers et entreprises dans leurs projets de vie,
+          d’installation et de développement à Chypre, avec une approche humaine et personnalisée.
+        </p>
+
+        <div class="hero-tags">
+          <div class="hero-tag">Conseil & accompagnement</div>
+          <div class="hero-tag">Vie & installation à Chypre</div>
+          <div class="hero-tag">Services personnalisés</div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn-main" href="tel:+35796132211">📞 Discuter de votre projet</a>
+          <a class="btn-ghost" href="mailto:support@elvoriav.shop">✉️ Envoyer un message</a>
+        </div>
+
+        <div class="hero-meta">
+          <span><i></i><strong>Tél :</strong> 35796132211</span>
+          <span><i></i><strong>Email :</strong> support@elvoriav.shop</span>
+        </div>
+
+        <div class="info-card">
+          <div class="info-label">Adresse</div>
+          <div class="info-line">
+            <span>Γεωργίου Αζίνα, 35, Flat/Office 109</span>
+          </div>
+          <div class="info-line">
+            <span>Χλώρακα, 8221, Πάφος, Κύπρος – Cyprus</span>
+          </div>
+
+          <div class="chip">
+            <span class="chip-dot"></span>
+            <span>Rendez-vous sur place ou en ligne, selon vos besoins.</span>
+          </div>
+
+          <div class="info-line" style="margin-top: 6px;">
+            <span class="info-label">Itinéraire</span>
+          </div>
+          <div class="info-line">
+            <a
+              class="info-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/?api=1&query=Γεωργίου+Αζίνα+35+Χλώρακα+8221+Πάφος+Κύπρος+Cyprus"
+            >
+              ➜ Ouvrir dans Google Maps
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT -->
+      <section class="gallery-card">
+        <div class="gallery-header">
+          <span>Ambiance Méditerranée & travail</span>
+          <span>3 photos d’illustration</span>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- main image – côte de Chypre -->
+          <div class="gallery-main">
+            <img
+              src="https://images.pexels.com/photos/34672071/pexels-photo-34672071.jpeg"
+              alt="Falaises côtières et mer turquoise à Chypre."
+              loading="lazy"
+            />
+            <div class="gallery-main-overlay">
+              <div class="gallery-main-text">
+                <span>Chypre</span>
+                <strong>La Méditerranée comme terrain de jeu</strong>
+                <div class="gallery-main-sub">
+                  Un cadre inspirant pour vos projets de vie et de développement.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- side images -->
+          <div class="gallery-side">
+            <figure class="gallery-item">
+              <img
+                src="https://images.pexels.com/photos/33826563/pexels-photo-33826563.jpeg"
+                alt="Plage animée à Chypre avec immeubles en arrière-plan."
+                loading="lazy"
+              />
+              <figcaption class="gallery-item-caption">
+                Plages, douceur de vivre et cadre urbain moderne.
+              </figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img
+                src="https://images.pexels.com/photos/12902873/pexels-photo-12902873.jpeg"
+                alt="Équipe travaillant sur ordinateurs dans un bureau moderne."
+                loading="lazy"
+              />
+              <figcaption class="gallery-item-caption">
+                Une équipe pour vous accompagner dans chaque étape de votre projet.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="gallery-footer">
+          <span>Images d’illustration issues de banques de photos libres (Pexels).</span>
+          <span>
+            <a href="https://www.pexels.com/search/cyprus/" target="_blank" rel="noopener noreferrer">
+              Découvrir d’autres vues de Chypre
+            </a>
+          </span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> SK LEBENSLUST LTD – Tous droits réservés.</span>
+      <span>Site vitrine statique – contenu et services à adapter.</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
